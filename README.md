@@ -62,7 +62,8 @@ npm install
 cd ../..
 ```
 
-Copy `.env.example` to `.env`, set `OPENAI_API_KEY`, and select a model. Real keys
+Copy `.env.example` to `.env`, set `GEMINI_API_KEY`, and select a model. You can
+create a free-tier key in Google AI Studio. Real keys
 must never be committed. Missing credentials produce a clear failure before a model
 run; `inspect` and `validate` do not need a key.
 

@@ -11,9 +11,9 @@ class AgentConfig(BaseSettings):
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
-    llm_provider: str = "openai"
-    llm_model: str = "gpt-5-mini"
-    openai_api_key: str | None = Field(default=None, repr=False)
+    llm_provider: str = "gemini"
+    llm_model: str = "gemini-3.5-flash-lite"
+    gemini_api_key: str | None = Field(default=None, repr=False)
     agent_max_iterations: int = Field(default=2, ge=1, le=5)
     agent_command_timeout_seconds: int = Field(default=120, ge=1, le=600)
     agent_max_file_size_bytes: int = Field(default=250_000, ge=1024)
