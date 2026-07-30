@@ -1,0 +1,9 @@
+{
+  "provider": "openai",
+  "model": "configured-at-runtime",
+  "max_iterations": 2,
+  "command_timeout_seconds": 120,
+  "max_file_size_bytes": 250000,
+  "max_context_characters": 120000,
+  "verbose": true
+}

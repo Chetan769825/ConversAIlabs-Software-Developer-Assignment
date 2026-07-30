@@ -1,0 +1,17 @@
+{
+  "requirement_understanding": "Add lightweight organization and keyword discovery while preserving CRUD clients.",
+  "repository_understanding": "The API has one Note model, controller, and route module with no tests or validation helpers.",
+  "selected_approach": "Add optional normalized tags, escaped title/content search, AND tag filtering, allowlisted sorting, bounded pagination, and tag usage counts.",
+  "assumptions": ["Authentication is outside scope", "Search is keyword-based", "Tags fit overlapping organization better than folders"],
+  "alternatives_considered": ["Folders", "MongoDB text search", "Semantic search"],
+  "files_to_change": [
+    {"path": "app/models/note.model.js", "purpose": "Store and index optional tags", "change_type": "modify", "expected_effect": "Notes support organization"},
+    {"path": "app/utils/note.validation.js", "purpose": "Centralize normalization and query validation", "change_type": "create", "expected_effect": "Safe consistent input"},
+    {"path": "app/controllers/note.controller.js", "purpose": "Implement query features and safe errors", "change_type": "modify", "expected_effect": "Search/filter/sort/pagination"},
+    {"path": "app/routes/note.routes.js", "purpose": "Add tag summary before parameter route", "change_type": "modify", "expected_effect": "Tag counts endpoint"},
+    {"path": "tests/notes.test.js", "purpose": "Protect CRUD and new behavior", "change_type": "create", "expected_effect": "Regression evidence"}
+  ],
+  "validation_steps": ["npm test", "node --check server.js", "node --check app/controllers/note.controller.js"],
+  "compatibility_considerations": ["Keep existing routes", "Keep array list response", "Preserve tags when legacy updates omit them"],
+  "risks": ["Regex scans do not scale to large collections", "Mongoose update requires regression coverage"]
+}

@@ -1,0 +1,1 @@
+Improve the application so users can better organise and search their notes.

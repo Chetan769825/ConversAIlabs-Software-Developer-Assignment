@@ -1,0 +1,24 @@
+### Create note
+POST http://localhost:3000/notes
+Content-Type: application/json
+
+{
+  "title": "AI interview",
+  "content": "Prepare coding agent architecture",
+  "tags": ["Interview", "AI", "python", "ai"]
+}
+
+### Search notes
+GET http://localhost:3000/notes?q=architecture
+
+### Filter by tag
+GET http://localhost:3000/notes?tag=ai
+
+### Multiple tags (AND semantics)
+GET http://localhost:3000/notes?tags=ai,python
+
+### Sorted and paginated
+GET http://localhost:3000/notes?sortBy=updatedAt&order=desc&page=1&limit=10
+
+### Tag summary
+GET http://localhost:3000/notes/tags
